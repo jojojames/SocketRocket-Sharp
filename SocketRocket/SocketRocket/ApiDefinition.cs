@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Drawing;
+
 using ObjCRuntime;
 using Foundation;
 using UIKit;
 using CoreFoundation;
 
-namespace SocketRocketBinding {
+namespace SocketRocket
+{
 	[BaseType(typeof(NSObject), Delegates = new string[] { "WeakDelegate" }, Events = new Type[] { typeof(SRWebSocketDelegate) })]
 	[Protocol]
 	public partial interface SRWebSocket {
@@ -61,6 +63,9 @@ namespace SocketRocketBinding {
 
 		[Export("send:")]
 		void Send(NSObject data);
+
+		[Export("sendPing:")]
+		void SendPing(NSData data);
 	}
 
 	[BaseType(typeof(NSObject)), Model, Protocol]
@@ -79,7 +84,7 @@ namespace SocketRocketBinding {
 
 		[Export("webSocket:didCloseWithCode:reason:wasClean:")]
 		[EventArgs("SRClosed")]
-		void Closed(SRWebSocket webSocket, int code, string reason, bool wasClean);
+		void Closed(SRWebSocket webSocket, nint code, string reason, bool wasClean);
 	}
 	/*[Category, BaseType (typeof (NSUrlRequest))]
 	public partial interface CertificateAdditions_NSURLRequest {
@@ -100,3 +105,4 @@ namespace SocketRocketBinding {
 		NSRunLoop SR_networkRunLoop ();
 	}*/
 }
+

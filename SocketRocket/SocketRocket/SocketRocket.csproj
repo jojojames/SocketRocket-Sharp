@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{9C2DC011-50DC-4D16-995D-5B3B07757736}</ProjectGuid>
+    <ProjectGuid>{B7115E2F-770B-4809-BAF8-EB643BE3A0B0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SocketRocketBinding</RootNamespace>
+    <RootNamespace>SocketRocket</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SocketRocketBinding</AssemblyName>
+    <AssemblyName>SocketRocket</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

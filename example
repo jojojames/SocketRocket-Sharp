@@ -1,0 +1,24 @@
+BINDDIR=/src/binding
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
+PROJECT_ROOT=SocketRocket-master
+PROJECT=$(PROJECT_ROOT)/SocketRocket.xcodeproj
+TARGET=SocketRocket
+BTOUCH=/Developer/MonoTouch/usr/bin/btouch-native
+
+SocketRocket-i386.a:
+    $(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
+    -mv $(PROJECT_ROOT)/build/Release-iphonesimulator/lib$(TARGET).a $@
+
+SocketRocket-armv6.a:
+    $(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv6 -configuration Release clean build
+    -mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
+
+SocketRocket-armv7.a:
+    $(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
+    -mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
+
+SocketRocketUniversal.a: libXMBindingLibrarySample-armv7.a libXMBindingLibrarySample-i386.a
+    lipo -create -output $@ $^
+
+
+lipo -output libSocketRocket.a -create libSocketRocket-i386.a libSocketRocket-armv7.a libSocketRocket-arm64.a

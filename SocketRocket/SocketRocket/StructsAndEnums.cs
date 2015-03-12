@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SocketRocketBinding {
+namespace SocketRocket {
 	public enum SRReadyState {
 		SR_CONNECTING = 0,
 		SR_OPEN = 1,
